@@ -1,0 +1,3 @@
+C:/Users/20614/Desktop/STM32Project/AD9959_H7/cmake-build-debug/CMakeFiles/AD9959_H7.elf.dir
+C:/Users/20614/Desktop/STM32Project/AD9959_H7/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/20614/Desktop/STM32Project/AD9959_H7/cmake-build-debug/CMakeFiles/rebuild_cache.dir
