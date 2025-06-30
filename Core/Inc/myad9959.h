@@ -73,17 +73,6 @@
 extern void ad9959_init(void);
 
 /**
- * @brief       选择并使能AD9959指定通道
- * @param       ch: 通道号 (0-3)
- *              0=通道0, 1=通道1, 2=通道2, 3=通道3
- * @retval      无
- * @note        AD9959有4个独立的DDS通道，通过CSR寄存器选择要操作的通道
- *              在配置任何通道参数之前必须先调用此函数选择目标通道
- *              每次只能选择一个通道进行操作
- */
-extern void ad9959_channel_sel_enable(uint8_t ch);
-
-/**
  * @brief       设置AD9959指定通道输出固定参数信号
  * @param       ch: 输出通道 (0-3)
  * @param       fre: 输出频率，单位Hz (0 ~ 250MHz)
