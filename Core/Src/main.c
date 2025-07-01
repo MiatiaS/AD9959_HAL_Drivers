@@ -98,7 +98,7 @@ int main(void)
 
   ad9959_set_signal_out(1, 1000000, 0, 512);  // 设置通道0输出1MHz正弦波，幅度512
   ad9959_set_signal_out(2, 1000000, 90, 512);  // 设置通道1输出1MHz正弦波，幅度512
-    ad9959_set_signal_out(3, 1000000, 180, 512);  // 设置通道2输出1MHz正弦波，幅度512
+  ad9959_set_signal_out(3, 1000000, 180, 512);  // 设置通道2输出1MHz正弦波，幅度512
   /* USER CODE END 2 */
 
   /* Infinite loop */
