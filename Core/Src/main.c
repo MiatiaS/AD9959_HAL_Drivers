@@ -20,10 +20,10 @@
 #include "main.h"
 #include "memorymap.h"
 #include "gpio.h"
-#include "myad9959.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "myad9959.h"
 
 /* USER CODE END Includes */
 
@@ -96,21 +96,10 @@ int main(void)
   // 初始化AD9959芯片（GPIO初始化已由MX_GPIO_Init()完成）
   ad9959_init();
 
-  // 配置4个通道输出不同频率的信号
-  // 通道0：输出1MHz，相位0度，幅度512（中等幅度）
-  ad9959_set_signal_out(0, 1000000.0, 0, 512);
-  HAL_Delay(10);
-  // 通道1：输出2MHz，相位90度，幅度768（较高幅度）
-  ad9959_set_signal_out(1, 2000000.0, 90, 768);
-  HAL_Delay(10);
-  // 通道2：输出5MHz，相位180度，幅度256（较低幅度）
-  ad9959_set_signal_out(2, 5000000.0, 180, 256);
-  HAL_Delay(10);
-  // 通道3：输出10MHz，相位270度，幅度1023（最大幅度）
-  ad9959_set_signal_out(3, 10000000.0, 270, 1023);
-  HAL_Delay(10);
-
-/* USER CODE END 2 */
+  ad9959_set_signal_out(1, 1000000, 0, 512);  // 设置通道0输出1MHz正弦波，幅度512
+  ad9959_set_signal_out(2, 1000000, 90, 512);  // 设置通道1输出1MHz正弦波，幅度512
+    ad9959_set_signal_out(3, 1000000, 180, 512);  // 设置通道2输出1MHz正弦波，幅度512
+  /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -119,10 +108,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    // 主循环中保持空闲，4个通道持续输出信号
-    // 可以在这里添加其他任务或者状态指示
-    HAL_Delay(1000);  // 延时1秒，避免CPU空转
-
+    ad9959_sweep_frequency(0,1000,2000000,1,1,0,512);  // 设置通道0线性扫频，频率从1kHz到2MHz，步进100Hz，相位0度，幅度512
+    HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }

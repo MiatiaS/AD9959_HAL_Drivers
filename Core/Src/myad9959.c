@@ -26,7 +26,7 @@
  * STM32H743 at 480MHz, a value around 50 gives a small delay for SPI.
  * 降低此值会缩短延时，增加此值会延长延时。
  */
-#define AD9959_DELAY_LOOP_COUNT 20
+#define AD9959_DELAY_LOOP_COUNT 50
 
 /**
  * @brief       AD9959软件延时函数
@@ -43,6 +43,7 @@ void ad9959_delay(uint32_t nns)
 		{
 			/* This loop creates a delay. The volatile keyword prevents the compiler
 			 * from optimizing this loop away. */
+			__NOP();
 		}
 	}
 }
@@ -288,7 +289,7 @@ void ad9959_sweep_frequency(uint8_t ch, double fre1, double fre2, double rdw, do
 	uint8_t CPOW0_Data[2];						// 相位控制字缓存
 	uint8_t SRR_Data[2] = {0xFF,0xFF};			// 扫描斜率寄存器：最快扫描速度
 	uint8_t ACR_Data[3] = {0x00,0x10,0x00};		// 幅度控制寄存器配置
-	uint8_t CFR_Data[3] = {0x80,0x43,0x20};		// 通道功能寄存器：启用线性扫频模式
+	uint8_t CFR_Data[3] = {0x82, 0x43, 0x30};   // 通道功能寄存器：启用线性扫频模式  //科一电子为{0x80,0x43,0x20} 此处进行了修改;
 	uint8_t FR1_Data[3] = {0xD0,0x00,0x00};		// 功能寄存器1配置
 
 	/* 选择要操作的通道 */
