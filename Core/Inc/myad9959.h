@@ -7,7 +7,30 @@
 
 #include "main.h"
 
+/*********************************SPI外设配置*********************************************/
+/**
+ * SPI外设选择宏定义
+ * 修改下面的宏定义来选择不同的SPI外设 如果使用软件SPI请忽略
+ * 例如：hspi1, hspi2, hspi3等
+ */
+#define AD9959_SPI_HANDLE   hspi3
 
+/*********************************SPI通信模式选择*********************************************/
+
+/**!!!!!!!!!!!!!!!!!!!!!!!!!!!重要代码!!!!!!!!!!!!!!!!!!!!!!!!!!!!!**/
+/******* 取消注释下面的宏定义以启用硬件SPI模式，注释掉则使用软件SPI模式 *******/
+#define AD9959_USE_HARDWARE_SPI
+
+
+
+/* SPI通信模式说明：
+ * 软件SPI模式：使用GPIO引脚模拟SPI时序，兼容性好，可自由控制时序
+ * 硬件SPI模式：使用STM32硬件SPI外设，传输速度快，CPU占用率低
+ *
+ * 使用方法：
+ * 1. 定义 AD9959_USE_HARDWARE_SPI 宏：使用硬件SPI模式
+ * 2. 不定义该宏：使用软件SPI模式（默认）
+ */
 
 #define Sweep_Fre		0	// 扫频
 #define Sweep_Phase		1	// 扫相
@@ -73,6 +96,18 @@
 extern void ad9959_init(void);
 
 /**
+ * @brief       AD9959统一数据写入函数
+ * @param       reg: 寄存器地址 (0x00-0x09)
+ * @param       DataNumber: 要写入的数据字节数
+ * @param       Data: 指向要写入数据的指针
+ * @retval      无
+ * @note        根据编译时宏定义自动选择使用软件SPI或硬件SPI
+ *              定义AD9959_USE_HARDWARE_SPI宏则使用硬件SPI，否则使用软件SPI
+ *              该函数是对底层SPI通信的统一封装，用户只需调用此函数即可
+ */
+extern void AD9959_WriteData_Unified(uint8_t reg, uint8_t DataNumber, uint8_t *Data);
+
+/**
  * @brief       设置AD9959指定通道输出固定参数信号
  * @param       ch: 输出通道 (0-3)
  * @param       fre: 输出频率，单位Hz (0 ~ 250MHz)
@@ -108,7 +143,7 @@ extern void ad9959_sweep_frequency(uint8_t ch, double fre1, double fre2, double 
  * @param       phase1: 起始相位，单位度
  * @param       phase2: 终止相位，单位度
  * @param       rdw: 上升步进相位，单位度/步
- * @param       fdw: 下降步进相位，单位度/步
+ * @param       fdw: 下���步进相位，单位度/步
  * @param       amp: 输出幅度 (1-1023)
  * @retval      无
  * @note        配置线性扫相模式，相位在phase1和phase2之间往复扫描

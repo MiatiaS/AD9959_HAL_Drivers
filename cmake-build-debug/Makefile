@@ -176,30 +176,6 @@ Core/Src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Core/Src/main.c.s
 .PHONY : Core/Src/main.c.s
 
-Core/Src/memorymap.obj: Core/Src/memorymap.c.obj
-.PHONY : Core/Src/memorymap.obj
-
-# target to build an object file
-Core/Src/memorymap.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.obj
-.PHONY : Core/Src/memorymap.c.obj
-
-Core/Src/memorymap.i: Core/Src/memorymap.c.i
-.PHONY : Core/Src/memorymap.i
-
-# target to preprocess a source file
-Core/Src/memorymap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.i
-.PHONY : Core/Src/memorymap.c.i
-
-Core/Src/memorymap.s: Core/Src/memorymap.c.s
-.PHONY : Core/Src/memorymap.s
-
-# target to generate assembly for a file
-Core/Src/memorymap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.s
-.PHONY : Core/Src/memorymap.c.s
-
 Core/Src/myad9959.obj: Core/Src/myad9959.c.obj
 .PHONY : Core/Src/myad9959.obj
 
@@ -223,6 +199,30 @@ Core/Src/myad9959.s: Core/Src/myad9959.c.s
 Core/Src/myad9959.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.s
 .PHONY : Core/Src/myad9959.c.s
+
+Core/Src/spi.obj: Core/Src/spi.c.obj
+.PHONY : Core/Src/spi.obj
+
+# target to build an object file
+Core/Src/spi.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.obj
+.PHONY : Core/Src/spi.c.obj
+
+Core/Src/spi.i: Core/Src/spi.c.i
+.PHONY : Core/Src/spi.i
+
+# target to preprocess a source file
+Core/Src/spi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.i
+.PHONY : Core/Src/spi.c.i
+
+Core/Src/spi.s: Core/Src/spi.c.s
+.PHONY : Core/Src/spi.s
+
+# target to generate assembly for a file
+Core/Src/spi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.s
+.PHONY : Core/Src/spi.c.s
 
 Core/Src/stm32h7xx_hal_msp.obj: Core/Src/stm32h7xx_hal_msp.c.obj
 .PHONY : Core/Src/stm32h7xx_hal_msp.obj
@@ -736,6 +736,102 @@ Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.s
 .PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.s
 
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.obj: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.obj
+
+# target to build an object file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.i: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.i
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.i
+
+# target to preprocess a source file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.i
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.i
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.s: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.s
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.s
+
+# target to generate assembly for a file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.s
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.s
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.obj: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.obj
+
+# target to build an object file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.i: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.i
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.i
+
+# target to preprocess a source file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.i
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.i
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.s: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.s
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.s
+
+# target to generate assembly for a file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.s
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.s
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.obj: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.obj
+
+# target to build an object file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.i: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.i
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.i
+
+# target to preprocess a source file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.i
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.i
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.s: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.s
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.s
+
+# target to generate assembly for a file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.s
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.s
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.obj: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.obj
+
+# target to build an object file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.i: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.i
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.i
+
+# target to preprocess a source file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.i
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.i
+
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.s: Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.s
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.s
+
+# target to generate assembly for a file
+Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AD9959_H7.elf.dir\build.make CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.s
+.PHONY : Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -751,12 +847,12 @@ help:
 	@echo ... Core/Src/main.obj
 	@echo ... Core/Src/main.i
 	@echo ... Core/Src/main.s
-	@echo ... Core/Src/memorymap.obj
-	@echo ... Core/Src/memorymap.i
-	@echo ... Core/Src/memorymap.s
 	@echo ... Core/Src/myad9959.obj
 	@echo ... Core/Src/myad9959.i
 	@echo ... Core/Src/myad9959.s
+	@echo ... Core/Src/spi.obj
+	@echo ... Core/Src/spi.i
+	@echo ... Core/Src/spi.s
 	@echo ... Core/Src/stm32h7xx_hal_msp.obj
 	@echo ... Core/Src/stm32h7xx_hal_msp.i
 	@echo ... Core/Src/stm32h7xx_hal_msp.s
@@ -821,6 +917,18 @@ help:
 	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.obj
 	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.i
 	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.s
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.obj
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.i
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.s
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.obj
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.i
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.s
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.obj
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.i
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.s
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.obj
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.i
+	@echo ... Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.s
 .PHONY : help
 
 

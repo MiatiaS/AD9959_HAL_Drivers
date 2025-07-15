@@ -96,24 +96,10 @@ CMakeFiles/AD9959_H7.elf.dir/Core/Src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/AD9959_H7.elf.dir/Core/Src/main.c.s"
 	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\20614\Desktop\STM32Project\AD9959_H7\Core\Src\main.c -o CMakeFiles\AD9959_H7.elf.dir\Core\Src\main.c.s
 
-CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.obj: CMakeFiles/AD9959_H7.elf.dir/flags.make
-CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.obj: C:/Users/20614/Desktop/STM32Project/AD9959_H7/Core/Src/memorymap.c
-CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.obj: CMakeFiles/AD9959_H7.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\20614\Desktop\STM32Project\AD9959_H7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.obj"
-	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.obj -MF CMakeFiles\AD9959_H7.elf.dir\Core\Src\memorymap.c.obj.d -o CMakeFiles\AD9959_H7.elf.dir\Core\Src\memorymap.c.obj -c C:\Users\20614\Desktop\STM32Project\AD9959_H7\Core\Src\memorymap.c
-
-CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.i"
-	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\20614\Desktop\STM32Project\AD9959_H7\Core\Src\memorymap.c > CMakeFiles\AD9959_H7.elf.dir\Core\Src\memorymap.c.i
-
-CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.s"
-	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\20614\Desktop\STM32Project\AD9959_H7\Core\Src\memorymap.c -o CMakeFiles\AD9959_H7.elf.dir\Core\Src\memorymap.c.s
-
 CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj: CMakeFiles/AD9959_H7.elf.dir/flags.make
 CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj: C:/Users/20614/Desktop/STM32Project/AD9959_H7/Core/Src/myad9959.c
 CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj: CMakeFiles/AD9959_H7.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\20614\Desktop\STM32Project\AD9959_H7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\20614\Desktop\STM32Project\AD9959_H7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj"
 	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj -MF CMakeFiles\AD9959_H7.elf.dir\Core\Src\myad9959.c.obj.d -o CMakeFiles\AD9959_H7.elf.dir\Core\Src\myad9959.c.obj -c C:\Users\20614\Desktop\STM32Project\AD9959_H7\Core\Src\myad9959.c
 
 CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.i: cmake_force
@@ -123,6 +109,20 @@ CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.i: cmake_force
 CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.s"
 	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\20614\Desktop\STM32Project\AD9959_H7\Core\Src\myad9959.c -o CMakeFiles\AD9959_H7.elf.dir\Core\Src\myad9959.c.s
+
+CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.obj: CMakeFiles/AD9959_H7.elf.dir/flags.make
+CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.obj: C:/Users/20614/Desktop/STM32Project/AD9959_H7/Core/Src/spi.c
+CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.obj: CMakeFiles/AD9959_H7.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\20614\Desktop\STM32Project\AD9959_H7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.obj"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.obj -MF CMakeFiles\AD9959_H7.elf.dir\Core\Src\spi.c.obj.d -o CMakeFiles\AD9959_H7.elf.dir\Core\Src\spi.c.obj -c C:\Users\20614\Desktop\STM32Project\AD9959_H7\Core\Src\spi.c
+
+CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.i"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\20614\Desktop\STM32Project\AD9959_H7\Core\Src\spi.c > CMakeFiles\AD9959_H7.elf.dir\Core\Src\spi.c.i
+
+CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.s"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\20614\Desktop\STM32Project\AD9959_H7\Core\Src\spi.c -o CMakeFiles\AD9959_H7.elf.dir\Core\Src\spi.c.s
 
 CMakeFiles/AD9959_H7.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj: CMakeFiles/AD9959_H7.elf.dir/flags.make
 CMakeFiles/AD9959_H7.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj: C:/Users/20614/Desktop/STM32Project/AD9959_H7/Core/Src/stm32h7xx_hal_msp.c
@@ -431,12 +431,68 @@ CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.s"
 	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc_ex.c -o CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc_ex.c.s
 
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj: CMakeFiles/AD9959_H7.elf.dir/flags.make
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj: C:/Users/20614/Desktop/STM32Project/AD9959_H7/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj: CMakeFiles/AD9959_H7.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\20614\Desktop\STM32Project\AD9959_H7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj -MF CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi.c.obj.d -o CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi.c.obj -c C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi.c
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.i"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi.c > CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi.c.i
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.s"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi.c -o CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi.c.s
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj: CMakeFiles/AD9959_H7.elf.dir/flags.make
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj: C:/Users/20614/Desktop/STM32Project/AD9959_H7/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj: CMakeFiles/AD9959_H7.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\20614\Desktop\STM32Project\AD9959_H7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj -MF CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi_ex.c.obj.d -o CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi_ex.c.obj -c C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi_ex.c
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.i"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi_ex.c > CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi_ex.c.i
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.s"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi_ex.c -o CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi_ex.c.s
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj: CMakeFiles/AD9959_H7.elf.dir/flags.make
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj: C:/Users/20614/Desktop/STM32Project/AD9959_H7/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj: CMakeFiles/AD9959_H7.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\20614\Desktop\STM32Project\AD9959_H7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj -MF CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c.obj.d -o CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c.obj -c C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.i"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c > CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c.i
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.s"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c -o CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c.s
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj: CMakeFiles/AD9959_H7.elf.dir/flags.make
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj: C:/Users/20614/Desktop/STM32Project/AD9959_H7/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj: CMakeFiles/AD9959_H7.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\20614\Desktop\STM32Project\AD9959_H7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj -MF CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c.obj.d -o CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c.obj -c C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.i"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c > CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c.i
+
+CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.s"
+	C:\ProgramData\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c -o CMakeFiles\AD9959_H7.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c.s
+
 # Object files for target AD9959_H7.elf
 AD9959_H7_elf_OBJECTS = \
 "CMakeFiles/AD9959_H7.elf.dir/Core/Src/gpio.c.obj" \
 "CMakeFiles/AD9959_H7.elf.dir/Core/Src/main.c.obj" \
-"CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.obj" \
 "CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj" \
+"CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.obj" \
 "CMakeFiles/AD9959_H7.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj" \
 "CMakeFiles/AD9959_H7.elf.dir/Core/Src/stm32h7xx_it.c.obj" \
 "CMakeFiles/AD9959_H7.elf.dir/Core/Src/syscalls.c.obj" \
@@ -458,15 +514,19 @@ AD9959_H7_elf_OBJECTS = \
 "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj" \
 "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj" \
 "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj" \
-"CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj"
+"CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj" \
+"CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj" \
+"CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj" \
+"CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj" \
+"CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj"
 
 # External object files for target AD9959_H7.elf
 AD9959_H7_elf_EXTERNAL_OBJECTS =
 
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Core/Src/gpio.c.obj
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Core/Src/main.c.obj
-AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.obj
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj
+AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.obj
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Core/Src/stm32h7xx_it.c.obj
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Core/Src/syscalls.c.obj
@@ -489,9 +549,13 @@ AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
+AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj
+AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj
+AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj
+AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/build.make
 AD9959_H7.elf: CMakeFiles/AD9959_H7.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\20614\Desktop\STM32Project\AD9959_H7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Linking C executable AD9959_H7.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\20614\Desktop\STM32Project\AD9959_H7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking C executable AD9959_H7.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\AD9959_H7.elf.dir\link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building C:/Users/20614/Desktop/STM32Project/AD9959_H7/cmake-build-debug/AD9959_H7.hex"
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building C:/Users/20614/Desktop/STM32Project/AD9959_H7/cmake-build-debug/AD9959_H7.bin"

@@ -48,4 +48,7 @@ CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj: \
  C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_i2c.h \
  C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_i2c_ex.h \
  C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_pwr.h \
- C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_pwr_ex.h
+ C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_pwr_ex.h \
+ C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_spi.h \
+ C:\Users\20614\Desktop\STM32Project\AD9959_H7\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_spi_ex.h \
+ C:\Users\20614\Desktop\STM32Project\AD9959_H7\Core\Inc/spi.h

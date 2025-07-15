@@ -6,10 +6,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/AD9959_H7.elf.dir/Core/Src/gpio.c.obj.d"
   "CMakeFiles/AD9959_H7.elf.dir/Core/Src/main.c.obj"
   "CMakeFiles/AD9959_H7.elf.dir/Core/Src/main.c.obj.d"
-  "CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.obj"
-  "CMakeFiles/AD9959_H7.elf.dir/Core/Src/memorymap.c.obj.d"
   "CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj"
   "CMakeFiles/AD9959_H7.elf.dir/Core/Src/myad9959.c.obj.d"
+  "CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.obj"
+  "CMakeFiles/AD9959_H7.elf.dir/Core/Src/spi.c.obj.d"
   "CMakeFiles/AD9959_H7.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj"
   "CMakeFiles/AD9959_H7.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj.d"
   "CMakeFiles/AD9959_H7.elf.dir/Core/Src/stm32h7xx_it.c.obj"
@@ -53,6 +53,14 @@ file(REMOVE_RECURSE
   "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj.d"
   "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj"
   "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj.d"
+  "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj"
+  "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj.d"
+  "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj"
+  "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj.d"
+  "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj"
+  "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj.d"
+  "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj"
+  "CMakeFiles/AD9959_H7.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj.d"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -4,10 +4,12 @@
 
 #include "myad9959.h"
 
+#include "spi.h"
+
 /**
  ****************************************************************************************************
  * @file        myad9959.c
- * @author      科一电子 & 20614
+ * @author      正点原子 & 20614
  * @version     V2.0
  * @date        2025-06-30
  * @brief       AD9959 DDS芯片驱动程序
@@ -74,7 +76,7 @@ void ad9959_init(void)
  	AD9959_RST(0);		// 复位信号拉低
  	AD9959_DELAY(3);	// 保持复位状态至少3个时钟周期
  	AD9959_RST(1);		// 复位信号拉高，开始复位过程
- 	AD9959_DELAY(500);	// 等待复位完成，确保内部状态稳定
+ 	AD9959_DELAY(500);	// 等待复位完成，确保内部电路稳定
  	AD9959_RST(0);		// 复位信号拉低，完成复位时序
 }
 
@@ -147,12 +149,60 @@ void AD9959_WriteData(uint8_t reg, uint8_t DataNumber, uint8_t *Data)
 }
 
 /**
+ * @brief       AD9959 SPI数据写入函数
+ * @param       reg: 寄存器地址 (0x00-0x09)
+ * @param       DataNumber: 要写入的数据字节数
+ * @param       Data: 指向要写入数据的指针
+ * @retval      无
+ * @note        该函数目前未实现，保留以便未来扩展SPI数据写入功能
+ *              目前所有数据写入通过AD9959_WriteData函数完成
+ */
+void AD9959_WriteData_SPI(uint8_t reg, uint8_t DataNumber, uint8_t *Data)
+{
+	/* 开始SPI通信：片选拉低 */
+	AD9959_CS(0);		// 选中AD9959芯片
+
+	/* 发送8位寄存器地址 */
+	HAL_SPI_Transmit(&AD9959_SPI_HANDLE, &reg, 1, HAL_MAX_DELAY);
+
+	/* 发送数据字节 */
+	if(DataNumber > 0 && Data != NULL)
+	{
+		HAL_SPI_Transmit(&AD9959_SPI_HANDLE, Data, DataNumber, HAL_MAX_DELAY);
+	}
+
+	/* 结束SPI通信：片选拉高 */
+	AD9959_CS(1);
+}
+
+/**
+ * @brief       AD9959统一数据写入函数
+ * @param       reg: 寄存器地址 (0x00-0x09)
+ * @param       DataNumber: 要写入的数据字节数
+ * @param       Data: 指向要写入数据的指针
+ * @retval      无
+ * @note        根据编译时宏定义自动选择使用软件SPI或硬件SPI
+ *              定义AD9959_USE_HARDWARE_SPI宏则使用硬件SPI，否则使用软件SPI
+ *              该函数是对底层SPI通信的统一封装，用户只需调用此函数即可
+ */
+void AD9959_WriteData_Unified(uint8_t reg, uint8_t DataNumber, uint8_t *Data)
+{
+#ifdef AD9959_USE_HARDWARE_SPI
+	/* 使用硬件SPI模式 */
+	AD9959_WriteData_SPI(reg, DataNumber, Data);
+#else
+	/* 使用软件SPI模式（默认） */
+	AD9959_WriteData(reg, DataNumber, Data);
+#endif
+}
+
+/**
  * @brief       计算频率控制字CFTW0
  * @param       fre: 目标输出频率 (Hz)
  * @param       CFTW0_Data: 指向4字节频率控制字数组的指针
  * @retval      无
  * @note        根据公式 CFTW0 = fre * 2^32 / System_Clock 计算32位频率控制字
- *              System_Clock = 500MHz，频率分辨率约为0.116Hz
+ *              System_Clock = 500MHz�����频率分辨率约为0.116Hz
  */
 void AD9959_Get_CFTW0_Data(double fre, uint8_t *CFTW0_Data)
 {
@@ -174,7 +224,7 @@ void AD9959_Get_CFTW0_Data(double fre, uint8_t *CFTW0_Data)
 /**
  * @brief       计算相位控制字CPOW0
  * @param       phase: 目标相位角度 (0-360度)
- * @param       CPOW0_Data: 指向2字节相位控制字数组的指针
+ * @param       CPOW0_Data: 指向2字节相��控制字数组的指针
  * @retval      无
  * @note        根据公式 CPOW0 = phase * 2^14 / 360 计算14位相位控制字
  *              相位分辨率为360/2^14 ≈ 0.022度
@@ -199,7 +249,7 @@ void AD9959_Get_CPOW0_Data(int phase, uint8_t *CPOW0_Data)
  * @param       amp: 目标幅度值 (1-1023)
  * @param       ACR_Data: 指向3字节幅度控制字数组的指针
  * @retval      无
- * @note        设置DAC输出幅度，1023对应最大输出幅度
+ * @note        设置DAC输出幅度，1023�����应最大输出���度
  *              幅度控制为10位，分辨率为1/1024
  */
 void AD9959_Get_ACR_Data(uint16_t amp, uint8_t *ACR_Data)
@@ -208,8 +258,8 @@ void AD9959_Get_ACR_Data(uint16_t amp, uint8_t *ACR_Data)
 
 	Value = amp & 0x03FF;					// 限制为10位数据(0-1023)
 
-	/* 幅度控制字格式：保持原有设置，更新幅度位 */
-	ACR_Data[0] = ACR_Data[0];				// 保持第一字节不变
+	/* 幅度控制字格式：���持原有设置，更新幅度位 */
+	ACR_Data[0] = ACR_Data[0];				// ���持第一字节不变
 	ACR_Data[1] = (ACR_Data[1] | (uint8_t)(Value>>8));	// 更新高2位
 	ACR_Data[2] = (uint8_t)(Value>>0);		// 设置低8位
 }
@@ -224,7 +274,7 @@ void AD9959_Get_ACR_Data(uint16_t amp, uint8_t *ACR_Data)
 void ad9959_channel_sel_enable(uint8_t ch)
 {
 	uint8_t ch_sel[4] = {0x10, 0x20, 0x40, 0x80};	// 各通道选择码
-	AD9959_WriteData(CSR, 1, &ch_sel[ch]);			// 写入通道选择寄存器
+	AD9959_WriteData_Unified(CSR, 1, &ch_sel[ch]);			// 写入通道选择寄存器
 }
 
 /**
@@ -245,31 +295,31 @@ void ad9959_set_signal_out(uint8_t ch, double fre, uint16_t phase, uint16_t amp)
 	uint8_t CFR_Data[3] = {0x00,0x23,0x35};	// 通道功能寄存器配置
 	uint8_t FR1_Data[3] = {0xD0,0x00,0x00};	// 功能寄存器1配置
 
-	/* 选择要操作的通道 */
+	/* ����要操作的通道 */
 	ad9959_channel_sel_enable(ch);
 
 	/* 配置功能寄存器，启用单频模式 */
-	AD9959_WriteData(FR1, 3, FR1_Data);		// 配置FR1：启用PLL等
-	AD9959_WriteData(CFR, 3, CFR_Data);		// 配置CFR：单频模式
+	AD9959_WriteData_Unified(FR1, 3, FR1_Data);		// 配置FR1：启用PLL等
+	AD9959_WriteData_Unified(CFR, 3, CFR_Data);		// 配置CFR：单频模式
 
 	/* 设置输出幅度 */
 	AD9959_Get_ACR_Data(amp, ACR_Data);		// 计算幅度控制字
-	AD9959_WriteData(ACR, 3, ACR_Data);		// 写入幅度控制寄存器
+	AD9959_WriteData_Unified(ACR, 3, ACR_Data);		// 写入幅度控制寄存器
 
 	/* 设置输出相位 */
 	AD9959_Get_CPOW0_Data(phase, CPOW0_Data);	// 计算相位控制字
-	AD9959_WriteData(CPOW0, 2, CPOW0_Data);		// 写入相位控制寄存器
+	AD9959_WriteData_Unified(CPOW0, 2, CPOW0_Data);		// 写入相位控制寄存器
 
 	/* 设置输出频率 */
 	AD9959_Get_CFTW0_Data(fre, CFTW0_Data);		// 计算频率控制字
-	AD9959_WriteData(CFTW0, 4, CFTW0_Data);		// 写入频率控制寄存器
+	AD9959_WriteData_Unified(CFTW0, 4, CFTW0_Data);		// 写入频率控制寄存器
 
 	/* 更新输出，使所有设置生效 */
 	IO_update();
 }
 
 /**
- * @brief       AD9959线性扫频功能
+ * @brief       AD9959��性扫频功能
  * @param       ch: 输出通道 (0-3)
  * @param       fre1: 起始频率 (Hz)
  * @param       fre2: 终止频率 (Hz)
@@ -283,11 +333,11 @@ void ad9959_set_signal_out(uint8_t ch, double fre, uint16_t phase, uint16_t amp)
  */
 void ad9959_sweep_frequency(uint8_t ch, double fre1, double fre2, double rdw, double fdw, uint16_t phase, uint16_t amp)
 {
-	uint8_t RDW_Data[4];						// 上升步进频率控制字缓存
+	uint8_t RDW_Data[4];						// 上升步进频���控制字缓存
 	uint8_t FDW_Data[4];						// 下降步进频率控制字缓存
 	uint8_t CFTW0_Data[4];						// 频率控制字缓存
 	uint8_t CPOW0_Data[2];						// 相位控制字缓存
-	uint8_t SRR_Data[2] = {0xFF,0xFF};			// 扫描斜率寄存器：最快扫描速度
+	uint8_t SRR_Data[2] = {0xFF,0xFF};			// 扫描���率寄存器：最快扫描速度
 	uint8_t ACR_Data[3] = {0x00,0x10,0x00};		// 幅度控制寄存器配置
 	uint8_t CFR_Data[3] = {0x82, 0x43, 0x30};   // 通道功能寄存器：启用线性扫频模式  //科一电子为{0x80,0x43,0x20} 此处进行了修改;
 	uint8_t FR1_Data[3] = {0xD0,0x00,0x00};		// 功能寄存器1配置
@@ -296,35 +346,35 @@ void ad9959_sweep_frequency(uint8_t ch, double fre1, double fre2, double rdw, do
 	ad9959_channel_sel_enable(ch);
 
 	/* 配置功能寄存器，启用扫频模式 */
-	AD9959_WriteData(FR1, 3, FR1_Data);			// 配置FR1寄存器
-	AD9959_WriteData(CFR, 3, CFR_Data);			// 配置CFR：启用线性扫频
+	AD9959_WriteData_Unified(FR1, 3, FR1_Data);			// 配置FR1寄存器
+	AD9959_WriteData_Unified(CFR, 3, CFR_Data);			// 配置CFR：启用线性扫频
 
 	/* 设置起始频率 */
 	AD9959_Get_CFTW0_Data(fre1, CFTW0_Data);	// 计算起始频率控制字
-	AD9959_WriteData(CFTW0, 4, CFTW0_Data);		// 写入CFTW0寄存器
+	AD9959_WriteData_Unified(CFTW0, 4, CFTW0_Data);		// 写入CFTW0寄存器
 
 	/* 设置终止频率 */
 	AD9959_Get_CFTW0_Data(fre2, CFTW0_Data);	// 计算终止频率控制字
-	AD9959_WriteData(0x0A, 4, CFTW0_Data);		// 写入CFTW1寄存器(0x0A)
+	AD9959_WriteData_Unified(0x0A, 4, CFTW0_Data);		// 写入CFTW1寄存器(0x0A)
 
 	/* 设置上升步进频率 */
 	AD9959_Get_CFTW0_Data(rdw, RDW_Data);		// 计算上升步进控制字
-	AD9959_WriteData(RDW, 4, RDW_Data);			// 写入RDW寄存器
+	AD9959_WriteData_Unified(RDW, 4, RDW_Data);			// 写���RDW寄存器
 
 	/* 设置下降步进频率 */
-	AD9959_Get_CFTW0_Data(fdw, FDW_Data);		// 计算下降步进控制字
-	AD9959_WriteData(FDW, 4, FDW_Data);			// 写入FDW寄存器
+	AD9959_Get_CFTW0_Data(fdw, FDW_Data);		// 计���下降步进控制字
+	AD9959_WriteData_Unified(FDW, 4, FDW_Data);			// 写入FDW寄存器
 
 	/* 设置扫描斜率时间 */
-	AD9959_WriteData(SRR, 2, SRR_Data);			// 写入扫描斜率寄存器
+	AD9959_WriteData_Unified(SRR, 2, SRR_Data);			// 写入扫描斜率寄存器
 
 	/* 设置输出幅度 */
 	AD9959_Get_ACR_Data(amp, ACR_Data);			// 计算幅度控制字
-	AD9959_WriteData(ACR, 3, ACR_Data);			// 写入幅度控制寄存器
+	AD9959_WriteData_Unified(ACR, 3, ACR_Data);			// 写入幅度控制寄存器
 
 	/* 设置输出相位 */
 	AD9959_Get_CPOW0_Data(phase, CPOW0_Data);	// 计算相位控制字
-	AD9959_WriteData(CPOW0, 2, CPOW0_Data);		// 写入相位控制寄存器
+	AD9959_WriteData_Unified(CPOW0, 2, CPOW0_Data);		// 写入相位控制寄存器
 
 	/* 更新输出，启动扫频 */
 	IO_update();
@@ -332,11 +382,11 @@ void ad9959_sweep_frequency(uint8_t ch, double fre1, double fre2, double rdw, do
 
 /**
  * @brief       AD9959线性扫相功能
- * @param       ch: 输出通道 (0-3)
+ * @param       ch: 输出��道 (0-3)
  * @param       fre: 输出频率 (Hz)
  * @param       phase1: 起始相位 (0-360度)
- * @param       phase2: 终止相位 (0-360度)
- * @param       rdw: 上升步进相位 (度/步)
+ * @param       phase2: 终止相�� (0-360度)
+ * @param       rdw: 上升步进相��� (度/步)
  * @param       fdw: 下降步进相位 (度/步)
  * @param       amp: 输出幅度 (1-1023)
  * @retval      无
@@ -346,7 +396,7 @@ void ad9959_sweep_frequency(uint8_t ch, double fre1, double fre2, double rdw, do
 void ad9959_sweep_phase(uint8_t ch, double fre, uint16_t phase1, uint16_t phase2, uint16_t rdw, uint16_t fdw, uint16_t amp)
 {
 	uint8_t RDW_Data[4] = {0x00,0x00,0x00,0x00};	// 上升步进相位控制字缓存
-	uint8_t FDW_Data[4] = {0x00,0x00,0x00,0x00};	// 下降步进相位控制字缓存
+	uint8_t FDW_Data[4] = {0x00,0x00,0x00,0x00};	// 下降步进相位控制字��存
 	uint8_t CFTW0_Data[4] = {0x00,0x00,0x00,0x00};	// 频率控制字缓存
 	uint8_t CPOW0_Data[4] = {0x00,0x00,0x00,0x00};	// 相位控制字缓存
 	uint8_t SRR_Data[2] = {0xFF,0xFF};				// 扫描斜率寄存器
@@ -357,45 +407,45 @@ void ad9959_sweep_phase(uint8_t ch, double fre, uint16_t phase1, uint16_t phase2
 	/* 选择要操作的通道 */
 	ad9959_channel_sel_enable(ch);
 
-	/* 配置功能寄存器，启用扫相模式 */
-	AD9959_WriteData(FR1, 3, FR1_Data);				// 配置FR1寄存器
-	AD9959_WriteData(CFR, 3, CFR_Data);				// 配置CFR：启用线性扫相
+	/* 配置功能寄存器，启用扫相模��� */
+	AD9959_WriteData_Unified(FR1, 3, FR1_Data);				// 配置FR1寄存器
+	AD9959_WriteData_Unified(CFR, 3, CFR_Data);				// 配置CFR：启用线性扫相
 
 	/* 设置固定输出频率 */
 	AD9959_Get_CFTW0_Data(fre, CFTW0_Data);			// 计算频率控制字
-	AD9959_WriteData(CFTW0, 4, CFTW0_Data);			// 写入频率寄存器
+	AD9959_WriteData_Unified(CFTW0, 4, CFTW0_Data);			// 写入频率寄存器
 
 	/* 设置起始相位 */
 	AD9959_Get_CPOW0_Data(phase1, CPOW0_Data);		// 计算起始相位控制字
-	AD9959_WriteData(CPOW0, 2, CFTW0_Data);			// 写入CPOW0寄存器
+	AD9959_WriteData_Unified(CPOW0, 2, CFTW0_Data);			// 写入CPOW0寄存器
 
 	/* 设置终止相位 */
 	AD9959_Get_CPOW0_Data(phase2, CPOW0_Data);		// 计算终止相位控制字
-	AD9959_WriteData(0x0A, 4, CFTW0_Data);			// 写入CPOW1寄存器
+	AD9959_WriteData_Unified(0x0A, 4, CFTW0_Data);			// 写入CPOW1寄存器
 
 	/* 设置上升步进相位 */
 	AD9959_Get_CPOW0_Data(rdw, RDW_Data);			// 计算上升步进控制字
-	AD9959_WriteData(RDW, 4, RDW_Data);				// 写入RDW寄存器
+	AD9959_WriteData_Unified(RDW, 4, RDW_Data);				// 写入RDW寄存器
 
 	/* 设置下降步进相位 */
-	AD9959_Get_CPOW0_Data(fdw, FDW_Data);			// 计算下降步进控制字
-	AD9959_WriteData(FDW, 4, FDW_Data);				// 写入FDW寄存器
+	AD9959_Get_CPOW0_Data(fdw, FDW_Data);			// 计���下降步进控制字
+	AD9959_WriteData_Unified(FDW, 4, FDW_Data);				// 写入FDW寄存器
 
-	/* 设置扫描斜率时间 */
-	AD9959_WriteData(SRR, 2, SRR_Data);				// 写入扫描斜率寄存器
+	/* ��置扫描斜率时间 */
+	AD9959_WriteData_Unified(SRR, 2, SRR_Data);				// 写入扫描斜率������器
 
 	/* 设置输出幅度 */
 	AD9959_Get_ACR_Data(amp, ACR_Data);				// 计算幅度控制字
-	AD9959_WriteData(ACR, 3, ACR_Data);				// 写入幅度控制寄存器
+	AD9959_WriteData_Unified(ACR, 3, ACR_Data);				// 写入幅度控制寄存器
 
-	/* 更新输出，启动扫相 */
+	/* 更新输出，启�����相 */
 	IO_update();
 }
 
 /**
  * @brief       计算幅度扫描控制字
  * @param       amp: 目标幅度值 (1-1023)
- * @param       Amp_Data: 指向4字节幅度扫描控制字数组的指针
+ * @param       Amp_Data: ���向4字节幅度扫描控制字数组的指针
  * @retval      无
  * @note        用于扫幅功能的幅度控制字计算，格式与ACR寄存器不同
  *              将10位幅度值转换为扫描模式专用的数据格式
@@ -406,7 +456,7 @@ void AD9959_Get_Amp_Data(uint16_t amp, uint8_t *Amp_Data)
 
 	Value = amp & 0x03FF;					// 限制为10位数据(0-1023)
 
-	/* 扫幅模式专用的幅度控制字格式 */
+	/* 扫幅模式专�����的幅度控制字格式 */
 	Amp_Data[0] = (uint8_t)(Value >> 2);	// 高8位数据
 	Amp_Data[1] = (uint8_t)(Value << 6);	// 低2位数据左移到高位
 	Amp_Data[2] = 0x00;						// 填充0
@@ -421,9 +471,9 @@ void AD9959_Get_Amp_Data(uint16_t amp, uint8_t *Amp_Data)
  * @param       amp1: 起始幅度 (1-1023)
  * @param       amp2: 终止幅度 (1-1023)
  * @param       rdw: 上升步进幅度 (LSB/步)
- * @param       fdw: 下降步进幅度 (LSB/步)
+ * @param       fdw: 下降步进幅度 (LSB/��)
  * @retval      无
- * @note        配置线性扫幅模式，幅度在amp1和amp2之间往复扫描
+ * @note        配置线性扫���模式，幅度在amp1和amp2之间往复扫描
  *              频率和相位保持固定，只改变信号幅度
  */
 void ad9959_sweep_amplitude(uint8_t ch, double fre, uint16_t phase, uint16_t amp1, uint16_t amp2, uint16_t rdw, uint16_t fdw)
@@ -435,42 +485,42 @@ void ad9959_sweep_amplitude(uint8_t ch, double fre, uint16_t phase, uint16_t amp
 	uint8_t CPOW0_Data[2];						// 相位控制字缓存
 	uint8_t SRR_Data[2] = {0xFF,0xFF};			// 扫描斜率寄存器
 	uint8_t ACR_Data[3] = {0x00,0x00,0x00};		// 幅度控制寄存器配置
-	uint8_t CFR_Data[3] = {0x40,0x43,0x20};		// 通道功能寄存器：启用线性扫幅模式
+	uint8_t CFR_Data[3] = {0x40,0x43,0x20};		// 通道功能��存器��启用��性��幅模式
 	uint8_t FR1_Data[3] = {0xD0,0x00,0x00};		// 功能寄存器1配置
 
 	/* 选择要操作的通道 */
 	ad9959_channel_sel_enable(ch);
 
 	/* 配置功能寄存器，启用扫幅模式 */
-	AD9959_WriteData(FR1, 3, FR1_Data);			// 配置FR1寄存器
-	AD9959_WriteData(CFR, 3, CFR_Data);			// 配置CFR：启用线性扫幅
+	AD9959_WriteData_Unified(FR1, 3, FR1_Data);			// 配置FR1寄存器
+	AD9959_WriteData_Unified(CFR, 3, CFR_Data);			// 配置CFR：启用线性扫幅
 
 	/* 设置起始幅度 */
 	AD9959_Get_ACR_Data(amp1, ACR_Data);		// 计算起始幅度控制字
-	AD9959_WriteData(ACR, 3, ACR_Data);			// 写入ACR寄存器
+	AD9959_WriteData_Unified(ACR, 3, ACR_Data);			// 写入ACR寄存器
 
 	/* 设置终止幅度 */
-	AD9959_Get_Amp_Data(amp2, Amp_Data);		// 计算终止幅度控制字
-	AD9959_WriteData(0x0A, 4, Amp_Data);		// 写入ASF1寄存器
+	AD9959_Get_Amp_Data(amp2, Amp_Data);		// 计算终止幅���控制字
+	AD9959_WriteData_Unified(0x0A, 4, Amp_Data);		// 写入ASF1寄存器
 
 	/* 设置上升步进幅度 */
 	AD9959_Get_Amp_Data(rdw, RDW_Data);			// 计算上升步进控制字
-	AD9959_WriteData(RDW, 4, RDW_Data);			// 写入RDW寄存器
+	AD9959_WriteData_Unified(RDW, 4, RDW_Data);			// 写入RDW寄存器
 
 	/* 设置下降步进幅度 */
 	AD9959_Get_Amp_Data(fdw, FDW_Data);			// 计算下降步进控制字
-	AD9959_WriteData(FDW, 4, FDW_Data);			// 写入FDW寄存器
+	AD9959_WriteData_Unified(FDW, 4, FDW_Data);			// 写入FDW寄存器
 
 	/* 设置扫描斜率时间 */
-	AD9959_WriteData(SRR, 2, SRR_Data);			// 写入扫描斜率寄存器
+	AD9959_WriteData_Unified(SRR, 2, SRR_Data);			// 写入扫描斜率寄存器
 
 	/* 设置固定输出相位 */
 	AD9959_Get_CPOW0_Data(phase, CPOW0_Data);	// 计算相位控制字
-	AD9959_WriteData(CPOW0, 2, CFTW0_Data);		// 写入相位寄存器
+	AD9959_WriteData_Unified(CPOW0, 2, CFTW0_Data);		// 写入相位寄存器
 
-	/* 设置固定输出频率 */
+	/* 设置固定��出频率 */
 	AD9959_Get_CFTW0_Data(fre, CFTW0_Data);		// 计算频率控制字
-	AD9959_WriteData(CFTW0, 4, CFTW0_Data);		// 写入频率寄存器
+	AD9959_WriteData_Unified(CFTW0, 4, CFTW0_Data);		// 写入频���寄存器
 
 	/* 更新输出，启动扫幅 */
 	IO_update();
